@@ -40,3 +40,5 @@ Passar os dados pro Github
 Organizar numa pasta data/raw
 
 Por no github
+
+Ler https://dvc.org/doc/start
