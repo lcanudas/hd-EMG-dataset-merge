@@ -32,8 +32,7 @@ No Windows
 
 `hdemg\Scripts\activate`
 
-5- `pip install -r requirements.txt`
-
+5 - `pip install -r requirements.txt`
 
 Passar os dados pro Github
 
@@ -42,3 +41,9 @@ Organizar numa pasta data/raw
 Por no github
 
 Ler https://dvc.org/doc/start
+
+criar pasta `data`
+
+criar dentro de data, criar `dado1`
+
+`dvc push`
