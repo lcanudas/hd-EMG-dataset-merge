@@ -13,7 +13,7 @@ Renato Watanabe
 (https://code.visualstudio.com/)
 
 ---
-### Dentro do Vscode exexutar em um terminal [https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/]:
+### Dentro do Vscode executar em um terminal [https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/]:
 
 
 
@@ -36,14 +36,28 @@ No Windows
 
 Passar os dados pro Github
 
-Organizar numa pasta data/raw
+---
 
-Por no github
+### Após cada adição de dado na pasta data, entrar com os seguintes comandos:
 
-Ler https://dvc.org/doc/start
+- `dvc add data`
 
-criar pasta `data`
+- `dvc push`
 
-criar dentro de data, criar `dado1`
+- `git commit -m "mensagem"`
 
-`dvc push`
+- `git push`
+
+
+--- 
+
+### Para pegar os dados, usar os comandos:
+
+- `git pull`
+
+- `dvc pull`
+
+
+---
+
+### Tarefas
