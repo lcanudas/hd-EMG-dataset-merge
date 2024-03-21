@@ -24,7 +24,11 @@ Renato Watanabe
 
 3- `python3 -m venv hdemg`
 
+
+
 4- No Linux
+
+`echo "export PYTHONPATH=$PWD" >> hdemg/bin/activate`
 
 `source hdemg/bin/activate`
 

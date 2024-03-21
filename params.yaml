@@ -1,0 +1,7 @@
+data_path:
+  seeds: 'data/raw/seeds/' 
+  dado4: 'data/raw/dado4/'
+
+database_params:
+  dado4:
+    fs: 2048
