@@ -1,6 +1,7 @@
 data_path:
   seeds: 'data/raw/seeds/' 
   dado4: 'data/raw/dado4/'
+  dado1: 'data/raw/dado1/'
 
 database_params:
   dado4:

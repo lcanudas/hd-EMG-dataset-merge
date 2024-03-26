@@ -15,12 +15,10 @@ import yaml
 import sys
 import os
 
-print(sys.path)
-print(os.environ.get('PYTHONPATH'))
-print(os.environ.items)
-config = yaml.safe_load(open('params.yaml'))
 
-def read_database1(time,h, w, subj, type, task, intensity, trial):
+
+
+def read_database1(time,h, w, subj, type, task, intensity, trial,  pathcwd=''):
     """_summary_
 
     Args:
@@ -33,7 +31,7 @@ def read_database1(time,h, w, subj, type, task, intensity, trial):
         intensity (int):  can be 30, 90 300, 25, 50, None. Note that  these intensities are not available for all tasks.
         trial (int): can be 1, 2, 3, None
     """
-   
+    config = yaml.safe_load(open(pathcwd+'params.yaml'))
     path = config['data_path']['seeds']
     subj_string = 'S'+str(subj).zfill(2)
     if intensity != None:
@@ -44,13 +42,37 @@ def read_database1(time,h, w, subj, type, task, intensity, trial):
         trial_string = '_'+str(trial)
     else:
         trial_string = ''
-    db = pd.read_csv(path+'/'+type+'/'+subj_string+'/'+subj_string+'_'+task+intensity_string+trial_string+'.csv')
+    db = pd.read_csv(pathcwd+path+'/'+type+'/'+subj_string+'/'+subj_string+'_'+task+intensity_string+trial_string+'.csv')
     img = db.loc[time,'MA1':'MN9'].values.reshape(9,14)
     resized = resize(img, (h,w), anti_aliasing=True)
 
     return resized
 
-def read_database4(time,h, w, subj, type, task, intensity, trial):
+def database3(time,h, w, subj, type, task, intensity, trial, pathcwd=''):
+    """_summary_
+
+    Args:
+        time (_type_): _description_
+        h (_type_): _description_
+        w (_type_): _description_
+        subj (_type_): _description_
+        type (_type_): _description_
+        task (_type_): _description_
+        intensity (_type_): _description_
+        trial (_type_): _description_
+        pathcwd (str, optional): _description_. Defaults to ''.
+
+    Returns:
+        _type_: _description_
+    """    
+    
+    plt.imshow(db2['emg_extensors'][t])
+
+
+    return resized
+
+
+def read_database4(time, h, w, subj, type, task, intensity, trial,  pathcwd=''):
     """_summary_
 
     Args:
@@ -63,13 +85,28 @@ def read_database4(time,h, w, subj, type, task, intensity, trial):
         intensity (int): can be 10, 30, 50
         trial (_type_): None
     """   
+    config = yaml.safe_load(open(pathcwd+'params.yaml'))
     path = config['data_path']['dado4']
     fs = config['database_params']['dado4']['fs']
-    n_channels = pd.read_csv(path+'nchannels.txt')
+    n_channels_file = pd.read_csv(pathcwd+path+'nchannels.txt', sep='\s+', index_col='subject')
     
     type_dict = {'biceps':'bb', 'forearm':'fa', 'torque':'torque', 'triceps':'tb'}
+    nrows_dict = {'biceps':8, 'forearm':8, 'torque':1, 'triceps':6}
     subj_string = 's'+str(subj)
-    intnsity_string = str(intensity)
-    return n_channels
+    intensity_string = str(intensity)
+
+    n_channels = n_channels_file.loc[subj_string, type]
+
+    file = open(pathcwd+path+subj_string+'/'+type+'/'+subj_string+'_'+task+intensity_string+'_'+type_dict[type]+'.bin',"rb")
+    dado = np.fromfile(file, dtype='<d')
+    if type != 'torque':
+        dado = dado.reshape(n_channels,-1)
+        dado = dado.T
+        dado = dado[time,:].reshape(nrows_dict[type],-1)
+        resized = resize(dado, (h,w), anti_aliasing=True)
+    else:
+        resized = dado[time]
+
+    return resized
 
     
