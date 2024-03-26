@@ -48,7 +48,7 @@ def read_database1(time,h, w, subj, type, task, intensity, trial,  pathcwd=''):
 
     return resized
 
-def database3(time,h, w, subj, type, task, intensity, trial, pathcwd=''):
+def read_database3(time,h, w, subj, type, task, intensity, trial, pathcwd=''):
     """_summary_
 
     Args:
@@ -109,4 +109,27 @@ def read_database4(time, h, w, subj, type, task, intensity, trial,  pathcwd=''):
 
     return resized
 
+def get_length_database4(subj, type, task, intensity, trial,  pathcwd=''):
+
+    config = yaml.safe_load(open(pathcwd+'params.yaml'))
+    path = config['data_path']['dado4']
+    fs = config['database_params']['dado4']['fs']
+    n_channels_file = pd.read_csv(pathcwd+path+'nchannels.txt', sep='\s+', index_col='subject')
     
+    type_dict = {'biceps':'bb', 'forearm':'fa', 'torque':'torque', 'triceps':'tb'}
+    nrows_dict = {'biceps':8, 'forearm':8, 'torque':1, 'triceps':6}
+    subj_string = 's'+str(subj)
+    intensity_string = str(intensity)
+
+    n_channels = n_channels_file.loc[subj_string, type]
+
+    file = open(pathcwd+path+subj_string+'/'+type+'/'+subj_string+'_'+task+intensity_string+'_'+type_dict[type]+'.bin',"rb")
+    dado = np.fromfile(file, dtype='<d')
+    if type != 'torque':
+        dado = dado.reshape(n_channels,-1)
+        dado = dado.T
+        length = len(dado)
+    else:
+        length = len(dado)
+
+    return length

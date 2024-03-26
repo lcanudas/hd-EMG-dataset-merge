@@ -1,6 +1,6 @@
 pandas==1.5.3
 numpy==1.25.2
-scikit-image==0.19.3
+scikit-image
 matplotlib==3.7.1
 mat73==0.62
 jupyter==1.0.0
