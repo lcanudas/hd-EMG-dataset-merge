@@ -20,7 +20,7 @@ print(os.environ.get('PYTHONPATH'))
 print(os.environ.items)
 config = yaml.safe_load(open('params.yaml'))
 
-def read_database1(time,h, w, subj, type, task, intensity, trial):
+def read_database1(time, h, w, subj, type, task, intensity, trial, exp, session):
     """_summary_
 
     Args:
@@ -32,6 +32,8 @@ def read_database1(time,h, w, subj, type, task, intensity, trial):
         task (string): can be baseline, DFMVC, ISOK, ISOT, PFMVC, RAH, SINE
         intensity (int):  can be 30, 90, 300, 25, 50, None, 10. Note that  these intensities are not available for all tasks.
         trial (int): can be 1, 2, 3, None
+        exp: None
+        session: None
     """
 
     path = config['data_path']['seeds']
@@ -50,7 +52,7 @@ def read_database1(time,h, w, subj, type, task, intensity, trial):
 
     return resized
 
-def read_database4(time,h, w, subj, type, task, intensity, trial):
+def read_database4(time, h, w, subj, type, task, intensity, trial, exp, session):
     """_summary_
 
     Args:
@@ -62,6 +64,8 @@ def read_database4(time,h, w, subj, type, task, intensity, trial):
         task (string): can be e, f, p, s
         intensity (int): can be 10, 30, 50
         trial (_type_): None
+        exp: None
+        session: None
     """   
     path = config['data_path']['dado4']
     fs = config['database_params']['dado4']['fs']
@@ -72,7 +76,7 @@ def read_database4(time,h, w, subj, type, task, intensity, trial):
     intensity_string = str(intensity)
     return n_channels
 
-def read_database3(time, h, w, subj, exp, session, X, Y)
+def read_database3(time, h, w, subj, type, task, intensity, trial, exp, session)
     """_summary_
 
     Args:
@@ -80,10 +84,13 @@ def read_database3(time, h, w, subj, exp, session, X, Y)
         h (int):
         w (int):
         subj (int): from 1 to 25
+        type: None
+        task (int): from 1 to 13
+        intensity: None
+        trial (int): from 1 to 6
         exp (int): from 1 to ?
         session (int): from 1 to 3
-        X (int): from 1 to 13
-        Y (int): from 1 to 6
+    
     """
 
     path = config['data_path']['seeds']
@@ -96,11 +103,8 @@ def read_database3(time, h, w, subj, exp, session, X, Y)
 
 
     seeds = loadmat(path+'\ '+subj_string+'\ '+'detop_exp'+exp+'_'+subj_string+'_'+session+'_'+X+'_'+Y+'.mat')
-    # as aspas em relação a: \
 
     emg = seeds[emg][:126,:]
-    resized = plt.imshow(emg[:,time].reshape(h,w))
-    # função tirada do 'funções_imagem.ipynb'
-    # não sei se o 'time' está bem localizado
+    resized = emg[:,time].reshape(h,w)
 
     return resized
