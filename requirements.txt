@@ -6,3 +6,4 @@ mat73==0.62
 jupyter==1.0.0
 dvc[gdrive]
 pyyaml
+h5py

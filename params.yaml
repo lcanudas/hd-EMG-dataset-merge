@@ -1,8 +1,13 @@
 data_path:
-  seeds: 'data/raw/seeds/' 
+  dado3: 'data/raw/seeds/' 
   dado4: 'data/raw/dado4/'
   dado1: 'data/raw/dado1/'
 
 database_params:
   dado4:
     fs: 2048
+    nrows_forearm: 6
+    nrows_biceps: 8
+    nrows_triceps: 8
+    ncolumns_biceps: 15
+    ncolumns_triceps: 15

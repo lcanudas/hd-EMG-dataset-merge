@@ -48,31 +48,41 @@ def read_database1(time,h, w, subj, type, task, intensity, trial,  pathcwd=''):
 
     return resized
 
-def read_database3(time,h, w, subj, type, task, intensity, trial, pathcwd=''):
+def read_database3(time, h, w, subj, type, task, intensity, trial, exp, session, pathcwd=''):
     """_summary_
 
     Args:
-        time (_type_): _description_
-        h (_type_): _description_
-        w (_type_): _description_
-        subj (_type_): _description_
-        type (_type_): _description_
-        task (_type_): _description_
-        intensity (_type_): _description_
-        trial (_type_): _description_
-        pathcwd (str, optional): _description_. Defaults to ''.
-
-    Returns:
-        _type_: _description_
-    """    
+        time (int):
+        h (int):
+        w (int):
+        subj (int): from 1 to 25
+        type: None
+        task (int): from 1 to 13
+        intensity: None
+        trial (int): from 1 to 6
+        exp (int): from 1 to ?
+        session (int): from 1 to 3
     
-    plt.imshow(db2['emg_extensors'][t])
+    """
+    config = yaml.safe_load(open(pathcwd+'params.yaml'))
+    path = config['data_path']['seeds']
 
+    subj_string = 'subj'+str(subj).zfill(2)
+    exp = str(exp).zfill(2)
+    session = 'Sess'+str(session)
+    X = str(X).zfill(2)
+    Y = str(Y).zfill(2)
+
+
+    seeds = loadmat(path+'\ '+subj_string+'\ '+'detop_exp'+exp+'_'+subj_string+'_'+session+'_'+X+'_'+Y+'.mat')
+
+    emg = seeds[emg][:126,:]
+    resized = emg[:,time].reshape(h,w)
 
     return resized
 
 
-def read_database4(time, h, w, subj, type, task, intensity, trial,  pathcwd=''):
+def read_database4(dado_orig, time, h, w, subj, type, task, intensity, trial,  pathcwd=''):
     """_summary_
 
     Args:
@@ -86,30 +96,16 @@ def read_database4(time, h, w, subj, type, task, intensity, trial,  pathcwd=''):
         trial (_type_): None
     """   
     config = yaml.safe_load(open(pathcwd+'params.yaml'))
-    path = config['data_path']['dado4']
-    fs = config['database_params']['dado4']['fs']
-    n_channels_file = pd.read_csv(pathcwd+path+'nchannels.txt', sep='\s+', index_col='subject')
-    
-    type_dict = {'biceps':'bb', 'forearm':'fa', 'torque':'torque', 'triceps':'tb'}
-    nrows_dict = {'biceps':8, 'forearm':8, 'torque':1, 'triceps':6}
-    subj_string = 's'+str(subj)
-    intensity_string = str(intensity)
-
-    n_channels = n_channels_file.loc[subj_string, type]
-
-    file = open(pathcwd+path+subj_string+'/'+type+'/'+subj_string+'_'+task+intensity_string+'_'+type_dict[type]+'.bin',"rb")
-    dado = np.fromfile(file, dtype='<d')
+    nrows_dict = {'biceps':8, 'forearm':6, 'torque':1, 'triceps':8}
     if type != 'torque':
-        dado = dado.reshape(n_channels,-1)
-        dado = dado.T
-        dado = dado[time,:].reshape(nrows_dict[type],-1)
+        dado = dado_orig[time,:].reshape(nrows_dict[type],-1)
         resized = resize(dado, (h,w), anti_aliasing=True)
     else:
-        resized = dado[time]
+        resized = dado_orig[time]
 
     return resized
 
-def get_length_database4(subj, type, task, intensity, trial,  pathcwd=''):
+def get_database4(subj, type, task, intensity, trial,  pathcwd=''):
 
     config = yaml.safe_load(open(pathcwd+'params.yaml'))
     path = config['data_path']['dado4']
@@ -125,6 +121,8 @@ def get_length_database4(subj, type, task, intensity, trial,  pathcwd=''):
 
     file = open(pathcwd+path+subj_string+'/'+type+'/'+subj_string+'_'+task+intensity_string+'_'+type_dict[type]+'.bin',"rb")
     dado = np.fromfile(file, dtype='<d')
+    dado = dado[:int(len(dado)//n_channels*n_channels)]
+    file.close()
     if type != 'torque':
         dado = dado.reshape(n_channels,-1)
         dado = dado.T
@@ -132,4 +130,4 @@ def get_length_database4(subj, type, task, intensity, trial,  pathcwd=''):
     else:
         length = len(dado)
 
-    return length
+    return length, dado
