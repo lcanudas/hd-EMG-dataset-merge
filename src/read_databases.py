@@ -15,34 +15,38 @@ import yaml
 import sys
 import os
 
+print(sys.path)
+print(os.environ.get('PYTHONPATH'))
+print(os.environ.items)
+config = yaml.safe_load(open('params.yaml'))
 
-
-
-def read_database1(time,h, w, subj, type, task, intensity, trial,  pathcwd=''):
+def read_database1(time, h, w, subj, type, task, intensity, trial, exp, session):
     """_summary_
 
     Args:
         time (_type_): _description_
         h (_type_): _description_
         w (_type_): _description_
-        subj (int): _description_
+        subj (int): from 1 to 7
         type (string): can be hdEMG or fwEMG
         task (string): can be baseline, DFMVC, ISOK, ISOT, PFMVC, RAH, SINE
-        intensity (int):  can be 30, 90 300, 25, 50, None. Note that  these intensities are not available for all tasks.
+        intensity (int):  can be 30, 90, 300, 25, 50, None, 10. Note that  these intensities are not available for all tasks.
         trial (int): can be 1, 2, 3, None
+        exp: None
+        session: None
     """
-    config = yaml.safe_load(open(pathcwd+'params.yaml'))
+
     path = config['data_path']['seeds']
     subj_string = 'S'+str(subj).zfill(2)
     if intensity != None:
-        intnsity_string = str(intensity)
+        intensity_string = str(intensity)
     else:
         intensity_string = ''
     if trial != None:
         trial_string = '_'+str(trial)
     else:
         trial_string = ''
-    db = pd.read_csv(pathcwd+path+'/'+type+'/'+subj_string+'/'+subj_string+'_'+task+intensity_string+trial_string+'.csv')
+    db = pd.read_csv(path+'/'+type+'/'+subj_string+'/'+subj_string+'_'+task+intensity_string+trial_string+'.csv')
     img = db.loc[time,'MA1':'MN9'].values.reshape(9,14)
     resized = resize(img, (h,w), anti_aliasing=True)
 
@@ -94,6 +98,8 @@ def read_database4(dado_orig, time, h, w, subj, type, task, intensity, trial,  p
         task (string): can be e, f, p, s
         intensity (int): can be 10, 30, 50
         trial (_type_): None
+        exp: None
+        session: None
     """   
     config = yaml.safe_load(open(pathcwd+'params.yaml'))
     nrows_dict = {'biceps':8, 'forearm':6, 'torque':1, 'triceps':8}
