@@ -4,6 +4,113 @@ data_path:
   dado1: 'data/raw/dado1/'
 
 database_params:
+  dado3:
+    fs: 2048
+    nrows_forearm: 9
+    ncolumns_forearm: 14
+    elec_diameter: 1.95
+    elec_distance: 4
+    database_url: 'https://osf.io/wa3qk/'
+    subj01:
+      age: 30
+      gender: 'F'
+      dom_hand: 'L'
+    subj02:
+      age: 30
+      gender: 'F'
+      dom_hand: 'R'
+    subj03:
+      age: 38
+      gender: 'M'
+      dom_hand: 'R'
+    subj04:
+      age: 29
+      gender: 'M'
+      dom_hand: 'R'
+    subj05:
+      age: 24
+      gender: 'F'
+      dom_hand: 'R'
+    subj06:
+      age: 32
+      gender: 'M'
+      dom_hand: 'R'
+    subj07:
+      age: 34
+      gender: 'F'
+      dom_hand: 'R'
+    subj08:
+      age: 28
+      gender: 'M'
+      dom_hand: 'R'
+    subj09:
+      age: 21
+      gender: 'M'
+      dom_hand: 'R'
+    subj10:
+      age: 55
+      gender: 'F'
+      dom_hand: 'R'
+    subj11:
+      age: 26
+      gender: 'F'
+      dom_hand: 'R'
+    subj12:
+      age: 27
+      gender: 'F'
+      dom_hand: 'R'
+    subj13:
+      age: 29
+      gender: 'M'
+      dom_hand: 'R'
+    subj14:
+      age: 47
+      gender: 'M'
+      dom_hand: 'R'
+    subj15:
+      age: 24
+      gender: 'F'
+      dom_hand: 'R'
+    subj16:
+      age: 46
+      gender: 'M'
+      dom_hand: 'R'
+    subj17:
+      age: 47
+      gender: 'F'
+      dom_hand: 'R'
+    subj18:
+      age: 49
+      gender: 'F'
+      dom_hand: 'R'
+    subj19:
+      age: 29
+      gender: 'F'
+      dom_hand: 'R'
+    subj20:
+      age: 32
+      gender: 'F'
+      dom_hand: 'L'
+    subj21:
+      age: 30
+      gender: 'F'
+      dom_hand: 'R'
+    subj22:
+      age: 43
+      gender: 'M'
+      dom_hand: 'R'
+    subj23:
+      age: 40
+      gender: 'F'
+      dom_hand: 'R'
+    subj24:
+      age: 24
+      gender: 'M'
+      dom_hand: 'R'
+    subj25:
+      age: 18
+      gender: 'M'
+      dom_hand: 'R'
   dado4:
     fs: 2048
     nrows_forearm: 6
@@ -11,3 +118,10 @@ database_params:
     nrows_triceps: 8
     ncolumns_biceps: 15
     ncolumns_triceps: 15
+    elec_diameter: 5
+    elec_distance: 10
+    database_url: 'https://www.nature.com/articles/s41597-020-00717-6#Sec7'
+    
+    
+    
+  
