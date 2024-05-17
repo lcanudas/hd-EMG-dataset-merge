@@ -2,6 +2,13 @@
 Nicole Moura
 Renato Watanabe
 
+### Notebook exemplo
+
+Existe um Jupyter notebook com exemplo básico de como utilizar os dados:
+
+[notebooks/exemplo_uso_dataset.ipynb](notebooks/exemplo_uso_dataset.ipynb)
+
+
 ---
 ### Instalar miniconda:
 
