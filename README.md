@@ -1,4 +1,6 @@
 # hd-EMG-dataset-merge
+
+Luana Otero Canudas
 Nicole Moura
 Renato Watanabe
 
