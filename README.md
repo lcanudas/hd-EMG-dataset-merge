@@ -72,3 +72,7 @@ Passar os dados pro Github
 ---
 
 ### Tarefas
+
+Como ler arquivos .mat: https://www.askpython.com/python/examples/mat-files-in-python
+
+
