@@ -75,4 +75,5 @@ Passar os dados pro Github
 
 Como ler arquivos .mat: https://www.askpython.com/python/examples/mat-files-in-python
 
+Pegar emg_flexors e emg_extensors
 
