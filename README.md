@@ -73,7 +73,11 @@ Passar os dados pro Github
 
 ### Tarefas
 
+Puxar arquivo sujeito 1 do database 2.
+
+Ler o arquivo .mat
 Como ler arquivos .mat: https://www.askpython.com/python/examples/mat-files-in-python
 
 Pegar emg_flexors e emg_extensors
 
+Fazer um gráfico de um instante dos dados de EMG
