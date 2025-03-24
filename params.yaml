@@ -122,6 +122,185 @@ database_params:
     elec_distance: 10
     database_url: 'https://www.nature.com/articles/s41597-020-00717-6#Sec7'
     
-    
-    
-  
+   dado2:
+     subj01: 
+       age: 24
+       gender: 'female'
+       height (cm): 165
+       palm width (cm): 9
+       palm circunference (cm): 20
+       forearm circunference (cm): 23
+       weight (kg): 56
+       laterality: 'right' 
+     subj02: 
+       age: 23
+       gender: 'male'
+       height (cm): 174
+       palm width (cm): 9
+       palm circunference (cm): 21
+       forearm circunference (cm): 26.5
+       weight (kg): 77
+       laterality: 'right' 
+     subj03: 
+       age: 25
+       gender: 'male'
+       height (cm): 170
+       palm width (cm): 8
+       palm circunference (cm): 19
+       forearm circunference (cm): 22.4
+       weight (kg): 65
+       laterality: 'right' 
+     subj04: 
+       age: 24
+       gender: 'male'
+       height (cm): 168
+       palm width (cm): 8
+       palm circunference (cm): 20
+       forearm circunference (cm): 22
+       weight (kg): 58
+       laterality: 'right' 
+     subj05: 
+       age: 23
+       gender: 'female'
+       height (cm): 160
+       palm width (cm): 7
+       palm circunference (cm): 19
+       forearm circunference (cm): 20
+       weight (kg): 48
+       laterality: 'right' 
+     subj06: 
+       age: 26
+       gender: 'male'
+       height (cm): 175
+       palm width (cm): 9
+       palm circunference (cm): 21
+       forearm circunference (cm): 27
+       weight (kg): 75
+       laterality: 'right' 
+     subj07: 
+       age: 23
+       gender: 'male'
+       height (cm): 180
+       palm width (cm): 10
+       palm circunference (cm): 23
+       forearm circunference (cm): 27
+       weight (kg): 75
+       laterality: 'right' 
+     subj08: 
+       age: 23
+       gender: 'male' 
+       height (cm): 173
+       palm width (cm): 8.5
+       palm circunference (cm): 20
+       forearm circunference (cm): 25 
+       weight (kg): 65
+       laterality: 'right' 
+     subj09: 
+       age: 23 
+       gender: 'female'
+       height (cm): 163
+       palm width (cm): 7.4
+       palm circunference (cm): 16.8
+       forearm circunference (cm): 20
+       weight (kg): 51
+       laterality: 'right' 
+     subj10: 
+       age: 25 
+       gender: 'female'
+       height (cm): 154
+       palm width (cm): 7
+       palm circunference (cm): 16.7 
+       forearm circunference (cm): 18.4
+       weight (kg): 38
+       laterality: 'right' 
+     subj11: 
+       age: 25
+       gender: 'male'
+       height (cm): 177
+       palm width (cm): 8.4
+       palm circunference (cm): 21 
+       forearm circunference (cm): 25.2 
+       weight (kg): 70
+       laterality: 'right' 
+     subj12: 
+       age: 24
+       gender: 'male'
+       height (cm): 176
+       palm width (cm): 8.4
+       palm circunference (cm): 19
+       forearm circunference (cm): 24.4 
+       weight (kg): 65
+       laterality: 'right' 
+     subj13: 
+       age: 26
+       gender: 'male'
+       height (cm): 175
+       palm width (cm): 9
+       palm circunference (cm): 20.6
+       forearm circunference (cm): 26
+       weight (kg): 67
+       laterality: 'right' 
+     subj14: 
+       age: 24 
+       gender: 'female' 
+       height (cm): 170
+       palm width (cm): 7.6
+       palm circunference (cm): 18.8 
+       forearm circunference (cm): 22
+       weight (kg): 56
+       laterality: 'right' 
+     subj15: 
+       age: 25
+       gender: 'female'
+       height (cm): 154
+       palm width (cm): 7
+       palm circunference (cm): 17.8
+       forearm circunference (cm): 20
+       weight (kg): 45
+       laterality: 'right' 
+     subj16: 
+       age: 24
+       gender: 'female' 
+       height (cm): 170
+       palm width (cm): 8
+       palm circunference (cm): 18.6
+       forearm circunference (cm): 22.4
+       weight (kg): 60
+       laterality: 'right'
+     subj17: 
+       age: 25
+       gender: 'male'
+       height (cm): 178
+       palm width (cm): 8.4
+       palm circunference (cm): 20
+       forearm circunference (cm): 24.8
+       weight (kg): 75
+       laterality: 'right' 
+     subj18: 
+       age: 23
+       gender: 'male'
+       height (cm): 173
+       palm width (cm): 8.8
+       palm circunference (cm): 21
+       forearm circunference (cm): 28
+       weight (kg): 89
+       laterality: 'right' 
+     subj19: 
+       age: 25
+       gender: 'female'
+       height (cm): 175
+       palm width (cm): 8
+       palm circunference (cm): 19
+       forearm circunference (cm): 20 
+       weight (kg): 60
+       laterality: 'right'
+     subj20: 
+       age: 22
+       gender: 'female'
+       height (cm): 158
+       palm width (cm): 7
+       palm circunference (cm): 16.6
+       forearm circunference (cm): 21
+       weight (kg): 43
+       laterality: 'right' 
+      
