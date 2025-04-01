@@ -123,6 +123,8 @@ database_params:
     database_url: 'https://www.nature.com/articles/s41597-020-00717-6#Sec7'
     
    dado2:
+     fs: 2048
+     database_url: 'https://www.nature.com/articles/s41597-021-00843-9'
      subj01: 
        age: 24
        gender: 'female'
