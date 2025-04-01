@@ -124,6 +124,12 @@ database_params:
     
    dado2:
      fs: 2048
+     nrows_extensors: 8
+     nrows_flexors: 8
+     ncolumns_biceps: 8
+     ncolumns_triceps: 8
+     elec_diameter: 'na'
+     elec_distance: 10 
      database_url: 'https://www.nature.com/articles/s41597-021-00843-9'
      subj01: 
        age: 24
