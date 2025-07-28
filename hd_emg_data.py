@@ -129,13 +129,13 @@ def include_metadata(dado, pathcwd, database_id, **kwargs):
     return dado
 
 if __name__ == '__main__':
-    pathcwd = r"C:\Program Files (x86)\files\hd-EMG-dataset-merge\\"
+    pathcwd = "./"
     database_id = 2
     segmento = 'emg_extensors'
     lista_dados = []
 
     for subj in range(1, 21):
-        mat_path = rf"C:\Users\Luana\Downloads\s{subj}.mat"
+        mat_path = os.path.join(pathcwd, f"s{subj}.mat")
         try:
             file_size, length, data, fs, labels, repetitions, force = get_database2(mat_path, segmento)
             h, w = data.shape[0], data.shape[1]
